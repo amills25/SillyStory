@@ -7,7 +7,10 @@ function randomValueFromArray(array){
   return array[random];
 }
 
+//created var for story text
 var storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day."
+
+//created arrays for the madlib
 const insertX = [
     "Willy the Goblin",
     "Big Daddy",
@@ -27,21 +30,24 @@ const insertZ = [
 randomize.addEventListener('click', result);
 
 function result() {
+  //new vars for the random choices from array items
   let newStory = storyText;
   let xItem = randomValueFromArray(insertX);
   let yItem = randomValueFromArray(insertY);
   let zItem = randomValueFromArray(insertY);
 
+  //functions to insert random array item into story text
   newStory = newStory.replace(':insertx:', xItem);
-  newStory = newStory.replace(':insertx:', xItem);
+  newStory = newStory.replace(':insertx:', xItem); //had to make a call twice because it only replaces the first instance of the substring
   newStory = newStory.replace(':inserty:', yItem);
   newStory = newStory.replace(':insertz:', zItem);
 
   if(customName.value !== '') {
     let name = customName.value;
-    newStory = newStory.replace('Bob', name);
+    newStory = newStory.replace('Bob', name); //replacing Bob with the user input name
   }
 
+  //included conversion math and replacement fuctions for USvUK
   if(document.getElementById("uk").checked) {
     let weight = Math.round(300 / 14) + ' stone';
     let temperature =  Math.round((94 - 32) * (5/9)) + ' centigrade';
@@ -49,6 +55,6 @@ function result() {
     newStory = newStory.replace('300 pounds', weight);
   }
 
-  story.textContent = newStory;
+  story.textContent = newStory; //inserted variable to display the new story created
   story.style.visibility = 'visible';
 }
