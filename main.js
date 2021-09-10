@@ -36,7 +36,7 @@ function result() {
   let yItem = randomValueFromArray(insertY);
   let zItem = randomValueFromArray(insertY);
 
-  //functions to insert random array item into story text
+  //events to insert random array item into story text
   newStory = newStory.replace(':insertx:', xItem);
   newStory = newStory.replace(':insertx:', xItem); //had to make a call twice because it only replaces the first instance of the substring
   newStory = newStory.replace(':inserty:', yItem);
@@ -47,7 +47,7 @@ function result() {
     newStory = newStory.replace('Bob', name); //replacing Bob with the user input name
   }
 
-  //included conversion math and replacement fuctions for USvUK
+  //included conversion math and replacement events for USvUK
   if(document.getElementById("uk").checked) {
     let weight = Math.round(300 / 14) + ' stone';
     let temperature =  Math.round((94 - 32) * (5/9)) + ' centigrade';
